@@ -1,10 +1,21 @@
+import Task from "./Task";
+import tasks from "../../data";
+
 function TasksGrid() {
+
+
     return (
         <div id="tasks-grid">
             <h2>Your tasks: </h2>
 
             <div id="to-do-list">
-
+                {tasks.map(task => (
+                    <Task 
+                        key={task.description} 
+                        description={task.description} 
+                        competed={task.completed} 
+                    />
+                ))}
             </div>
 
             <div id="task-filters">

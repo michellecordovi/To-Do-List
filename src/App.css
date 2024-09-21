@@ -52,3 +52,18 @@ main{
     justify-content: space-between;
     align-items: center;
 }
+
+.task{
+    padding: 1rem;
+    border-bottom: 1px solid #E3E4F1;
+    display: flex;
+    align-items: center;
+}
+
+.task-checkbox{
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 100%;
+    border: 1px solid #E3E4F1;
+    margin-right: 1rem;
+}
