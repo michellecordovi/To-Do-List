@@ -1,10 +1,13 @@
+/* eslint-disable react/no-unknown-property */
 import './App.css'
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 
 function App() {
   const [isDarkMode, setIsDarkMode]= useState(false)
 
-
+  function handleMode() {
+    setIsDarkMode(!isDarkMode);
+  }
 
   return (
 		<>
@@ -16,7 +19,7 @@ function App() {
 			<main>
 				<section id="title-section">
 					<h1>TODO</h1>
-					<div id="mode-container">
+					<div id="mode-container" onClick={handleMode}>
 						{isDarkMode ? (
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
