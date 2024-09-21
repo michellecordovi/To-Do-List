@@ -18,4 +18,12 @@ main{
 #input-box {
     width: 100%;
     background-color: white;
+    margin-bottom: 1rem;
+}
+
+
+/* TASKS GRID */
+#tasks-grid{
+    background-color: white;
+    min-height: 300px;
 }
