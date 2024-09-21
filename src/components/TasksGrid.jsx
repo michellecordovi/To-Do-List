@@ -1,6 +1,8 @@
 function TasksGrid() {
     return (
         <div id="tasks-grid">
+            <h2>Your tasks: </h2>
+
             <div id="to-do-list">
 
             </div>

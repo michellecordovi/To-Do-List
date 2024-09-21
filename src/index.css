@@ -2,12 +2,13 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-};
+}
 
-body{
+html,body{
   min-height: 100vh;
   color: #494C6B;
   background-color: #F2F2F2;
+  font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
 }
 
 #root{
@@ -26,9 +27,15 @@ body{
   object-fit:fill;
   position: absolute;
   top: 0px;
-  z-index: -1;
+  z-index: 0;
 }
 
 h1{
   color: white;
+  font-size: 40px;
+}
+
+h2{
+  padding: 1rem;
+  font-size: 24px;
 }
