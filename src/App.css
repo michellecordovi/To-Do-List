@@ -35,6 +35,10 @@ main{
     outline: none;
 }
 
+input::placeholder{
+    font-size: 18px;
+    color: #9495A5;
+}
 
 /* TASKS GRID */
 #tasks-grid{
@@ -44,13 +48,6 @@ main{
 
 #to-do-list {
     min-height: 200px;
-}
-
-#task-filters{
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .task{
@@ -66,4 +63,24 @@ main{
     border-radius: 100%;
     border: 1px solid #E3E4F1;
     margin-right: 1rem;
+}
+
+#task-filters{
+    color:#9495A5;
+    font-size: 14px;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#filter-options{
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter-option {
+    margin: 0px 8px;
+    cursor: pointer;
 }
