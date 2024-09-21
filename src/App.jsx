@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 import './App.css'
 import {useState} from 'react'
+import TasksBox from './components/TasksBox';
 
 function App() {
   const [isDarkMode, setIsDarkMode]= useState(false)
@@ -47,6 +48,8 @@ function App() {
 						)}
 					</div>
 				</section>
+
+        <TasksBox />
 			</main>
 		</>
   );

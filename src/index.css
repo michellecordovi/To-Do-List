@@ -7,6 +7,7 @@
 body{
   min-height: 100vh;
   color: #494C6B;
+  background-color: #F2F2F2;
 }
 
 #root{
@@ -24,11 +25,6 @@ body{
   object-fit:fill;
   position: absolute;
   z-index: -1;
-}
-
-main{
-  width: 50%;
-  height: 50%;
 }
 
 h1{
