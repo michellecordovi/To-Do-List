@@ -50,6 +50,8 @@ input::placeholder{
     min-height: 200px;
 }
 
+
+/* TASK COMPONENT */
 .task{
     padding: 1rem;
     border-bottom: 1px solid #E3E4F1;
@@ -63,8 +65,27 @@ input::placeholder{
     border-radius: 100%;
     border: 1px solid #E3E4F1;
     margin-right: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.is-checked{
+    background: linear-gradient(#55DDFF, #C058F3);
+}
+
+.task-description{
+    cursor: pointer;
+}
+
+.completed-task {
+    color: #D1D2DA;
+    text-decoration: line-through;
+}
+
+
+/* TASK FILTERS */
 #task-filters{
     color:#9495A5;
     font-size: 14px;
