@@ -1,36 +1,17 @@
+/* eslint-disable react/prop-types */
 import Task from "./Task";
 import { useState, useEffect } from "react";
 
-function TasksGrid() {
-	const [tasks, setTasks] = useState([])
+function TasksGrid({tasks}) {
 	const [completedTasks, setCompletedTasks] = useState([]);
 	const [tasksLeft, setTasksLeft] = useState(tasks.length);
 
-	//will pickup the data from tasks in the backend whenever this is rendered
-	useEffect(() => {
-		fetch('http://localhost:8000/tasks')
-			.then((res) => {
-				if(res.ok){
-					return res.json();
-				} else {
-					throw new Error('unable to retreive data')
-				}
-			})
-			.then((data) => {
-				setTasks(data);
-				setTasksLeft(data.filter(task => !task.completed).length)
-			})
-			.catch(error => {
-				console.log(error.message);
-			})
-		
-	}, [])
-
+	//updates # of tasks left whenever completed tasks changes
 	useEffect(() => {
 		setTasksLeft(() => {
 			return tasks.length - completedTasks.length;
 		});
-	}, [completedTasks]);
+	}, [completedTasks, tasks.length]);
 
 	return (
 		<div id="tasks-grid">
