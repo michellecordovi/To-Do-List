@@ -26,7 +26,7 @@ function TasksBox(){
 	return (
 		<section id="to-do-section">
 			<InputBox tasks={tasks} setTasks={setTasks} />
-			<TasksGrid tasks={tasks} />
+			<TasksGrid tasks={tasks} setTasks={setTasks} />
 		</section>
 	);
 }

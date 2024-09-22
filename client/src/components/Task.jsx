@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 
-function Task({ tasks, description, completedTasks, setCompletedTasks }) {
+function Task({ tasks, setTasks, description, completed, completedTasks, setCompletedTasks }) {
 	const index = tasks.findIndex((item) => item.description === description); //finds index of this particular tasks in the tasks data
 
 	const [isComplete, setIsComplete] = useState(false);
@@ -21,6 +21,28 @@ function Task({ tasks, description, completedTasks, setCompletedTasks }) {
 		} else {
 			setCompletedTasks([...completedTasks, description]);
 		}
+	}
+
+	function handleDelete(){
+		fetch(`http://localhost:8000/tasks?description=${description}&completed=${completed}`, {
+			method: "DELETE",
+		})
+		.then(res => {
+			if(res.ok){
+				return res.json();
+			} else {
+				throw new Error('UNABLE TO COMPLETE YOUR DELETE FETCH REQUEST')
+			};
+		})
+		.then(() => {
+			setTasks(() => {
+				let newArray = tasks.filter(item => item.description === description);
+				return newArray;
+			})
+		})
+		.catch(error => {
+			console.log(error.message)
+		})
 	}
 
 	return (
@@ -51,7 +73,7 @@ function Task({ tasks, description, completedTasks, setCompletedTasks }) {
 				{description}
 			</p>
 
-			<div className="delete-button">
+			<div className="delete-button" onClick={handleDelete}>
 				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
 					<path
 						fill="#494C6B"

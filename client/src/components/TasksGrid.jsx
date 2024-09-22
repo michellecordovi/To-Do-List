@@ -2,7 +2,7 @@
 import Task from "./Task";
 import { useState, useEffect } from "react";
 
-function TasksGrid({tasks}) {
+function TasksGrid({tasks, setTasks}) {
 	const [completedTasks, setCompletedTasks] = useState([]);
 	const [tasksLeft, setTasksLeft] = useState(tasks.length);
 
@@ -22,7 +22,9 @@ function TasksGrid({tasks}) {
 					<Task
 						key={index}
 						tasks={tasks}
+						setTasks={setTasks}
 						description={task.description}
+						completed={task.completed}
 						completedTasks={completedTasks}
 						setCompletedTasks={setCompletedTasks}
 					/>

@@ -24,6 +24,17 @@ app.post('/tasks', (req, res) => {
 	} else {
 		res.status(404).send("UNABLE TO POST NEW TASK");
 	}
+});
+
+app.delete('/tasks', (req,res) => {
+    let taskIndex = tasks.findIndex(task => task.description === req.query.description);
+
+    if(taskIndex !== -1){
+        tasks.splice(taskIndex, 1);
+        res.send('Your selected task has been deleted')
+    } else {
+        res.status(400).send('Unable to complete your delete request')
+    }
 })
 
 
