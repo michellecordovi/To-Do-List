@@ -1,6 +1,7 @@
 main{
   width: 40%;
   height: 50%;
+  margin: 2rem auto;
   position: relative;
   z-index: 1;
 }
@@ -48,6 +49,8 @@ input::placeholder{
 
 #to-do-list {
     min-height: 200px;
+    max-height: 400px;
+    overflow: scroll;
 }
 
 
@@ -77,6 +80,7 @@ input::placeholder{
 
 .task-description{
     cursor: pointer;
+    width: 100%;
 }
 
 .completed-task {
@@ -84,6 +88,13 @@ input::placeholder{
     text-decoration: line-through;
 }
 
+.delete-button {
+    cursor: pointer;
+}
+
+.delete-button path:hover{
+    fill: red;
+}
 
 /* TASK FILTERS */
 #task-filters{
