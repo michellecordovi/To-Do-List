@@ -19,6 +19,7 @@ function App() {
 			<main>
 				<section id="title-section">
 					<h1>TODO</h1>
+
 					<div id="mode-container" onClick={handleMode}>
 						{isDarkMode ? (
 							<svg
@@ -48,7 +49,7 @@ function App() {
 					</div>
 				</section>
 
-        <TasksBox />
+        		<TasksBox />
 			</main>
 		</>
   );

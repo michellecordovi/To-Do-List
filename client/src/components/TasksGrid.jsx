@@ -1,18 +1,38 @@
 import Task from "./Task";
-import tasks from "../../data";
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from "react";
 
 function TasksGrid() {
-    const [completedTasks, setCompletedTasks] = useState([])
-    const [tasksLeft, setTasksLeft] = useState(tasks.length);
+	const [tasks, setTasks] = useState([])
+	const [completedTasks, setCompletedTasks] = useState([]);
+	const [tasksLeft, setTasksLeft] = useState(tasks.length);
 
-    useEffect(() => {
-       setTasksLeft(() => {
-            return tasks.length - completedTasks.length
-       })
-    }, [completedTasks])
+	//will pickup the data from tasks in the backend whenever this is rendered
+	useEffect(() => {
+		fetch('http://localhost:8000/tasks')
+			.then((res) => {
+				if(res.ok){
+					return res.json();
+				} else {
+					throw new Error('unable to retreive data')
+				}
+			})
+			.then((data) => {
+				setTasks(data);
+				setTasksLeft(data.filter(task => !task.completed).length)
+			})
+			.catch(error => {
+				console.log(error.message);
+			})
+		
+	}, [])
 
-    return (
+	useEffect(() => {
+		setTasksLeft(() => {
+			return tasks.length - completedTasks.length;
+		});
+	}, [completedTasks]);
+
+	return (
 		<div id="tasks-grid">
 			<h2>Your tasks: </h2>
 
@@ -20,9 +40,10 @@ function TasksGrid() {
 				{tasks.map((task, index) => (
 					<Task
 						key={index}
+						tasks={tasks}
 						description={task.description}
-                        completedTasks={completedTasks}
-                        setCompletedTasks={setCompletedTasks}
+						completedTasks={completedTasks}
+						setCompletedTasks={setCompletedTasks}
 					/>
 				))}
 			</div>
