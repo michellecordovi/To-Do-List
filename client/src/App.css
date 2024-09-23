@@ -49,8 +49,8 @@ input::placeholder{
 
 #to-do-list {
     min-height: 200px;
-    max-height: 400px;
-    overflow: scroll;
+    max-height: 300px;
+    overflow: auto;
 }
 
 
